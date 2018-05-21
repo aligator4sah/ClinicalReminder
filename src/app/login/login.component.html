@@ -1,3 +1,20 @@
-<p>
-  login works!
-</p>
+<div class="login-wrapper">
+  <form class="login">
+    <label class="title">
+      <h3 class="welcome">Welcome to</h3>
+      Clinical Reminder
+      <h5 class="hint">Use your username to sign in.</h5>
+    </label>
+    <div class="login-group">
+      <form [formGroup]="loginForm">
+        <input class="username col-sm-12" formControlName="username" type="text" id="login_username" placeholder="Username">
+        <input class="password col-sm-12" formControlName="password" type="password" id="login_password" placeholder="Password">
+
+      <div *ngIf="invalidUser" class="error active">
+        Invalid user name or password
+      </div>
+      </form>
+      <button type="submit" class="btn btn-primary" (click)="signIn()" [disabled]="loginForm.invalid">Sign In</button>
+    </div>
+  </form>
+</div>

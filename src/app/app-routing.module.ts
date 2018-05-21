@@ -9,7 +9,7 @@ import {RouterModule} from '@angular/router';
 export const appRoutes = [
   {
     path: '',
-    reDirectTo: 'login',
+    redirectTo: '/login',
     pathMatch: 'full'
   },
   {
@@ -33,7 +33,6 @@ export const appRoutes = [
 
 @NgModule({
   imports: [
-    CommonModule,
     RouterModule.forRoot(appRoutes)
   ],
   declarations: [],

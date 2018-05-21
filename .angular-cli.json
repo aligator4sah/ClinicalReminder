@@ -20,7 +20,8 @@
       "prefix": "app",
       "styles": [
         "styles.css",
-        "./node_modules/@clr/ui/clr-ui.min.css"
+        "../node_modules/@clr/ui/clr-ui.min.css",
+        "../node_modules/@clr/icons/clr-icons.min.css"
       ],
       "scripts": [],
       "environmentSource": "environments/environment.ts",
