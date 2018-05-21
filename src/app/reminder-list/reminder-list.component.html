@@ -1,4 +1,27 @@
 <app-header></app-header>
 <div class="container">
+  <h3> Reminder List</h3>
+  <clr-datagrid>
+    <clr-dg-column>User Name</clr-dg-column>
+    <clr-dg-column>High Priority(Unfinished)</clr-dg-column>
+    <clr-dg-column>Middle Priority(unfinished)</clr-dg-column>
+    <clr-dg-column>Low Priority(unfinished)</clr-dg-column>
 
+    <clr-dg-row *ngFor="let note of notes">
+      <clr-dg-cell>{{note.patient}}</clr-dg-cell>
+      <clr-dg-cell>{{note.high}}</clr-dg-cell>
+      <clr-dg-cell>{{note.middle}}</clr-dg-cell>
+      <clr-dg-cell>{{note.low}}</clr-dg-cell>
+    </clr-dg-row>
+
+    <clr-dg-footer>
+      <clr-dg-pagination #pagination [clrDgPageSize]="10">
+        {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}}
+        of {{pagination.totalItems}} reminders
+      </clr-dg-pagination>
+    </clr-dg-footer>
+  </clr-datagrid>
+
+  <button class="btn btn-primary" (click)="postNew()">Post Reminder</button>
+  <app-reminder-post [open]="needPost"></app-reminder-post>
 </div>

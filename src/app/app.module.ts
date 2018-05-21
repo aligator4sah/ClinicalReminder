@@ -11,6 +11,9 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {ClarityModule} from '@clr/angular';
 import {AppRoutingModule} from './app-routing.module';
 import { HeaderComponent } from './header/header.component';
+import {ReminderService} from './service/reminder.service';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {DatePipe} from '@angular/common';
 
 
 @NgModule({
@@ -24,12 +27,16 @@ import { HeaderComponent } from './header/header.component';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     ClarityModule,
     FormsModule,
     ReactiveFormsModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    ReminderService,
+    DatePipe
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

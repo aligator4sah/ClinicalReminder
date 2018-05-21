@@ -1,4 +1,71 @@
-<app-header></app-header>
-<div class="container">
+<clr-wizard #wizardlg [(clrWizardOpen)]="open" clrWizardSize="lg">
+  <clr-wizard-title>Large-Sized Wizard</clr-wizard-title>
 
-</div>
+  <clr-wizard-button [type]="'cancel'">Cancel</clr-wizard-button>
+  <clr-wizard-button [type]="'previous'">Back</clr-wizard-button>
+  <clr-wizard-button [type]="'next'">Next</clr-wizard-button>
+  <clr-wizard-button [type]="'finish'" (wasClicked)="submit()">Finish</clr-wizard-button>
+
+  <clr-wizard-page>
+    <ng-template clrPageTitle>Post Reminder</ng-template>
+    <!--form for post a reminder to patient -->
+    <form class="form" [formGroup]="reminderForm">
+      <section class="form-block">
+        <!-- patient name-->
+        <div class="form-group">
+          <label for="patientName">Patient Name</label>
+          <div class="select">
+            <select id="patientName" formControlName="pname">
+              <option>Patinet 1</option>
+              <option>Patient 2</option>
+              <option>Patient 3</option>
+              <option>Patient 4</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- reminder title-->
+        <div class="form-group">
+          <label for="title">Tile</label>
+          <input id="title" type="text" formControlName="title">
+        </div>
+
+        <!-- reminder description -->
+        <div class="form-group">
+          <label for="description">Description</label>
+          <textarea id="description" rows="5" formControlName="description"></textarea>
+        </div>
+
+        <!--duration -->
+        <div class="form-group">
+          <label for="duration"> Duration </label>
+          <input id="duration" type="number" formControlName="duration">
+          <span> hours from now</span>
+        </div>
+
+        <!--Priority Level -->
+        <div class="form-group">
+          <label> Priority Level</label>
+          <div class="radio-inline">
+            <input type="radio" name="priority" id="checkrads_11" value="High" formControlName="priority">
+            <label for="checkrads_11">High</label>
+          </div>
+          <div class="radio-inline">
+            <input type="radio" name="priority" id="checkrads_12" value="Middle" formControlName="priority">
+            <label for="checkrads_12">Middle</label>
+          </div>
+          <div class="radio-inline">
+            <input type="radio" name="priority" id="checkrads_13" value="Low" formControlName="priority">
+            <label for="checkrads_13">Low</label>
+          </div>
+        </div>
+      </section>
+    </form>
+  </clr-wizard-page>
+
+  <clr-wizard-page>
+    <ng-template clrPageTitle>Confirm Reminder</ng-template>
+    <p> Patient Name: <span>{{reminderForm.value}}</span></p>
+  </clr-wizard-page>
+
+</clr-wizard>
