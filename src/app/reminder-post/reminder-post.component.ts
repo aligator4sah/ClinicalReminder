@@ -9,11 +9,14 @@ import {DatePipe} from '@angular/common';
   styleUrls: ['./reminder-post.component.css']
 })
 export class ReminderPostComponent implements OnInit {
+  // TODO: change open attribute to global observale so that component could communicate
+
   @Input() open: boolean;
   @ViewChild("wizardlg") wizardLarge: ClrWizard;
 
   reminderForm: FormGroup;
   remindNote = new Reminder();
+  today = Date.now();
 
   constructor(
     private fb: FormBuilder,
@@ -42,12 +45,12 @@ export class ReminderPostComponent implements OnInit {
     );
     this.reminderForm.controls['priority'].valueChanges.subscribe(value =>
       this.remindNote.priority = value
-    )
+    );
+
   }
 
   submit() {
-    let today = Date.now();
-    this.remindNote.startTime = this.date.transform(today,  "yyyy-MM-dd HH:mm a z':'+0900");
+    this.remindNote.startTime = this.date.transform(this.today,  "yyyy-MM-dd HH:mm a z':'+0900");
     console.log(this.remindNote);
   }
 

@@ -4,7 +4,7 @@
   <clr-wizard-button [type]="'cancel'">Cancel</clr-wizard-button>
   <clr-wizard-button [type]="'previous'">Back</clr-wizard-button>
   <clr-wizard-button [type]="'next'">Next</clr-wizard-button>
-  <clr-wizard-button [type]="'finish'" (wasClicked)="submit()">Finish</clr-wizard-button>
+  <clr-wizard-button [type]="'finish'" (click)="submit()">Finish</clr-wizard-button>
 
   <clr-wizard-page>
     <ng-template clrPageTitle>Post Reminder</ng-template>
@@ -65,7 +65,12 @@
 
   <clr-wizard-page>
     <ng-template clrPageTitle>Confirm Reminder</ng-template>
-    <p> Patient Name: <span>{{reminderForm.value}}</span></p>
+    <p> Patient Name: <span>{{remindNote.patient}}</span></p>
+    <p>Title: <span> {{remindNote.title}}</span></p>
+    <p>Description: <span>{{remindNote.description}}</span></p>
+    <p>Start Time: <span>{{ today | date:'full'}}</span></p>
+    <p> Duration: <span>{{remindNote.duration}}</span></p>
+    <p>Priority: <span> {{remindNote.priority}}</span></p>
   </clr-wizard-page>
 
 </clr-wizard>
