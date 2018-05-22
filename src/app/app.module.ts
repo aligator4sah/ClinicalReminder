@@ -14,6 +14,7 @@ import { HeaderComponent } from './header/header.component';
 import {ReminderService} from './service/reminder.service';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {DatePipe} from '@angular/common';
+import {ChartsModule} from 'ng2-charts';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import {DatePipe} from '@angular/common';
     ClarityModule,
     FormsModule,
     ReactiveFormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ChartsModule,
   ],
   providers: [
     ReminderService,

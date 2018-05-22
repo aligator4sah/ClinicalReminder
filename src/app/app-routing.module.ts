@@ -25,7 +25,7 @@ export const appRoutes = [
     component: ReminderPostComponent,
   },
   {
-    path: 'reminder-history',
+    path: 'reminder-history/:id',
     component: ReminderHistoryComponent
   }
 

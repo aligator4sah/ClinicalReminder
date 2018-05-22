@@ -1,3 +1,18 @@
 <app-header></app-header>
-<div class="container">>
+<div class="container">
+  <h3>Reminder History View</h3>
+  <p>Time: 03/03/2018 - 03/10/2018</p>
+  <div>
+    <div style="display: block; width: 900px">
+      <canvas baseChart
+              [datasets]="barChartData"
+              [labels]="barChartLabels"
+              [options]="barChartOptions"
+              [legend]="barChartLegend"
+              [chartType]="barChartType"
+              (chartHover)="chartHovered($event)"
+              (chartClick)="chartClicked($event)"></canvas>
+    </div>
+    <button class="btn btn-primary" (click)="back()">Back</button>
+  </div>
 </div>

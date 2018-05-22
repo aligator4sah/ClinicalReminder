@@ -7,7 +7,7 @@
     <clr-dg-column>Middle Priority(unfinished)</clr-dg-column>
     <clr-dg-column>Low Priority(unfinished)</clr-dg-column>
 
-    <clr-dg-row *ngFor="let note of notes">
+    <clr-dg-row *ngFor="let note of notes" routerLink="/reminder-history/{{note.id}}">
       <clr-dg-cell>{{note.patient}}</clr-dg-cell>
       <clr-dg-cell>{{note.high}}</clr-dg-cell>
       <clr-dg-cell>{{note.middle}}</clr-dg-cell>
